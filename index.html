@@ -1,0 +1,786 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="ZestJS is a lightweight, logic-driven UI library for rapid web development. It is designed for great user experience (no dependencies, fully customizable, supports URL state persistence)."
+    />
+    <title>
+      ZestJS - A lightweight, logic-driven UI library for rapid web development.
+    </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/reset.css" media="all" />
+    <link rel="stylesheet" href="./assets/highlight/styles.css" media="all" />
+    <link rel="stylesheet" href="./assets/styles.css" media="all" />
+    <link rel="stylesheet" href="./zestjs.min.css" />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header class="header">
+      <!-- <button id="Nav_Toggle" class="hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+          <path
+            d="M96 160C96 142.3 110.3 128 128 128L512 128C529.7 128 544 142.3 544 160C544 177.7 529.7 192 512 192L128 192C110.3 192 96 177.7 96 160zM96 320C96 302.3 110.3 288 128 288L512 288C529.7 288 544 302.3 544 320C544 337.7 529.7 352 512 352L128 352C110.3 352 96 337.7 96 320zM544 480C544 497.7 529.7 512 512 512L128 512C110.3 512 96 497.7 96 480C96 462.3 110.3 448 128 448L512 448C529.7 448 544 462.3 544 480z"
+          />
+        </svg>
+      </button> -->
+
+      <a class="header__logo logo" href="./index.html">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+          <path
+            d="M539.9 192L539.9 448L314 576L96 448L96 233.7L183.6 278.8L183.6 395.8L317.1 471.3L452.9 395.8L452.9 244.8L351.8 187.2L439.4 134.1L539.9 192zM404.6 113.1L319.8 64L231.2 118.8L317.2 166.1L404.6 113.1z"
+          />
+        </svg>
+        <h1 class="header__title">ZestJS</h1>
+      </a>
+      <ul class="header__nav">
+        <li>
+          <a href="./index.html">Learn</a>
+        </li>
+        <li>
+          <a href="https://github.com/dangtuann-dev/ZestJS">Github</a>
+        </li>
+      </ul>
+      <!-- <div class="header__tagline">
+        A lightweight, logic-driven UI library for rapid web development.
+      </div> -->
+    </header>
+    <!-- /HEADER -->
+    <main>
+      <nav class="navigation show">
+        <ul id="lib-pages">
+          <li><a href="#home">HOME</a></li>
+          <li><a href="#started">GETTING STARTED</a></li>
+          <li>
+            <a href="#components">Components</a>
+          </li>
+          <li><a href="#ZPop">ZPop</a></li>
+          <li><a href="#ZTab">ZTab</a></li>
+          <li><a href="#ZSlide">ZSlide</a></li>
+        </ul>
+      </nav>
+
+      <div class="pages">
+        <div id="home">Home</div>
+        <div id="started">
+          <div class="container content">
+            <h2 data-bullet="1" class="title" id="try-it-out">Try It Out</h2>
+            <p>
+              ZestJS is a lightweight, logic-driven UI library for rapid web
+              development. built with pure JavaScript. (<a
+                class="hightlight--text"
+                href="https://github.com/dangtuann-dev/ZestJS"
+                >Source code available on GitHub</a
+              >)
+            </p>
+
+            <ul>
+              <li>No dependencies</li>
+              <li>Fully customizable with CSS</li>
+              <li>Supports CSS transitions</li>
+              <li>Simple and intuitive API</li>
+              <li>No extra files needed</li>
+              <li>Optimized for user experience</li>
+            </ul>
+
+            <h2 data-bullet="2" class="title" id="installation">
+              Installation
+            </h2>
+            <table class="methods">
+              <thead>
+                <tr>
+                  <th>Method</th>
+                  <th class="w60">Steps</th>
+                </tr>
+              </thead>
+              <tr>
+                <td>Direct Download</td>
+                <td>
+                  <a
+                    class="hightlight--text"
+                    href="https://github.com/dangtuann-dev/ZestJS/archive/master.zip"
+                    title="Download ZestJS"
+                  >
+                    Download ZIP
+                  </a>
+                  <p>
+                    Simply extract the ZIP file and use the
+                    <code>zestjs.min.js</code> and
+                    <code>zestjs.min.css</code> files in your project.
+                  </p>
+                </td>
+              </tr>
+            </table>
+            <p>
+              ZestJS provides a small CSS file that you can include directly via
+              a CDN link. This makes it easy to integrate into your project and
+              customize as needed.
+            </p>
+
+            <p>Include the ZestJS JavaScript file in your project:</p>
+
+            <pre
+              class="html"
+            ><code>&lt;script src=&quot;https://cdn.jsdelivr.net/gh/dangtuann-dev/ZestJS@v1.0.1/ZestJS.min.js&quot;&gt;&lt;/script&gt;</code></pre>
+
+            <p>Optionally, include the ZestJS CSS file for default styling:</p>
+
+            <pre class="html"><code>&lt;link
+    rel=&quot;stylesheet&quot;
+    href=&quot;https://cdn.jsdelivr.net/gh/dangtuann-dev/ZestJS@v1.0.1/ZestJS.min.css&quot;
+&gt;</code></pre>
+
+            <p>
+              You can explore the list of CSS classes used by ZestJS in the
+              <a href="#styling">Styling</a> section to easily customize them as
+              needed.
+            </p>
+
+            <blockquote>
+              You can use the
+              <a
+                class="hightlight--text"
+                href="https://github.com/dangtuann-dev/ZestJS/releases"
+                target="_blank"
+                >released</a
+              >
+              versions of ZestJS available here.
+            </blockquote>
+          </div>
+        </div>
+        <div id="components">THIS IS Components PAGE</div>
+        <div id="ZPop">
+          <div class="container content">
+            <p>Here are some examples of how to use zpop:</p>
+
+            <button class="btn btn--primary btn-demo js-zpop-modal-1">
+              Basic Modal
+            </button>
+            <button class="btn btn--secondary btn-demo js-zpop-modal-2">
+              Modal with Buttons
+            </button>
+            <button class="btn btn--secondary btn-demo js-zpop-modal-3">
+              Large Content Modal
+            </button>
+            <button class="btn btn--secondary btn-demo js-zpop-modal-4">
+              Footer-Only Close Modal
+            </button>
+            <button class="btn btn--secondary btn-demo js-zpop-modal-5">
+              Persistent Modal (Stays in DOM)
+            </button>
+            <button class="btn btn--secondary btn-demo js-zpop-modal-6">
+              Multiple Modals
+            </button>
+            <button class="btn btn--secondary btn-demo js-zpop-modal-7">
+              YouTube Embed Modal
+            </button>
+
+            <h2 data-bullet="1" class="title" id="usage">Usage</h2>
+            <pre class="javascript"><code>// Initialize a new modal
+const modal = new ZPop({
+    content: '&lt;h1&gt;This is content&lt;/h1&gt;',
+    // templateId: 'my-modal-template',
+    footer: true,
+    destroyOnClose: false,
+    closeMethods: ['overlay', 'button', 'escape'],
+    cssClass: ['custom-class-1', 'custom-class-2'],
+    onOpen: function() {
+        console.log('Modal opened');
+    },
+    onClose: function() {
+        console.log('Modal closed');
+    },
+});
+
+// Set modal content
+modal.setContent('&lt;h1&gt;This is new content&lt;/h1&gt;');
+
+// Add footer buttons
+modal.addFooterBtn('Cancel', 'btn btn--default', function(e) {
+    modal.close();
+});
+
+modal.addFooterBtn('Confirm', 'btn btn--primary', function(e) {
+    modal.close();
+});
+
+// Open the modal
+modal.open();
+
+// Close the modal
+modal.close();</code></pre>
+
+            <p>
+              If you use <code>templateId</code>, ensure that a
+              <code>&lt;template&gt;</code> element with the corresponding
+              <code>id</code> exists in your HTML. Below is an example:
+            </p>
+
+            <pre class="html">
+<code>&lt;template id="my-modal-template"&gt;
+    &lt;div&gt;
+        &lt;h1&gt;This is modal content&lt;/h1&gt;
+        &lt;p&gt;You can add any HTML here.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+</code>
+</pre>
+            <p>
+              <strong>Note:</strong> When using <code>templateId</code>, do not
+              provide <code>content</code>. If both are specified,
+              <code>content</code> will take precedence, and
+              <code>templateId</code> will be ignored.
+            </p>
+
+            <h2 data-bullet="2" class="title" id="options">Options</h2>
+            <table class="methods">
+              <thead>
+                <tr>
+                  <th>Option</th>
+                  <th>Type</th>
+                  <th class="w60">Description</th>
+                </tr>
+              </thead>
+              <tr>
+                <td>content, templateId</td>
+                <td>string</td>
+                <td>
+                  One of <code>content</code> or <code>templateId</code> is
+                  required to set the modal content.
+                  <code>content</code> accepts an HTML string, while
+                  <code>templateId</code> specifies the ID of a template
+                  element. If both are provided, <code>content</code> will take
+                  precedence.
+                </td>
+              </tr>
+              <tr>
+                <td>cssClass</td>
+                <td>array</td>
+                <td>
+                  Custom CSS classes applied to the modal container (default:
+                  <code>[]</code>)
+                </td>
+              </tr>
+              <tr>
+                <td>footer</td>
+                <td>boolean</td>
+                <td>
+                  Shows a footer in the modal (default:
+                  <code>false</code>)
+                </td>
+              </tr>
+              <tr>
+                <td>destroyOnClose</td>
+                <td>boolean</td>
+                <td>
+                  Decides whether the modal is removed from the DOM upon closing
+                  (default: <code>true</code>)
+                </td>
+              </tr>
+              <tr>
+                <td>closeMethods</td>
+                <td>array</td>
+                <td>
+                  Defines methods to close the modal (default:
+                  <code>['overlay', 'button', 'escape']</code>)
+                </td>
+              </tr>
+              <tr>
+                <td>enableScrollLock</td>
+                <td>boolean</td>
+                <td>
+                  Enables or disables scroll locking when the modal is open.
+                  When set to
+                  <code>true</code>, it prevents scrolling on the target element
+                  specified by <code>scrollLockTarget</code>. Default:
+                  <code>true</code>.
+                </td>
+              </tr>
+              <tr>
+                <td>scrollLockTarget</td>
+                <td>function</td>
+                <td>
+                  A callback that returns the element to apply scroll locking
+                  on. By default, it locks scrolling on
+                  <code>document.body</code>.
+                </td>
+              </tr>
+              <tr>
+                <td>onOpen</td>
+                <td>function</td>
+                <td>
+                  Callback function executed when the modal opens (after
+                  transition ends) (default:
+                  <code>undefined</code>)
+                </td>
+              </tr>
+              <tr>
+                <td>onClose</td>
+                <td>function</td>
+                <td>
+                  Callback function executed when the modal closes (default:
+                  <code>undefined</code>)
+                </td>
+              </tr>
+            </table>
+
+            <!-- Styling section -->
+            <h2 data-bullet="3" class="title" id="styling">Styling</h2>
+            <p>
+              zpop styles are defined in CSS. You can fully customize it to meet
+              your design requirements.
+            </p>
+
+            <table class="methods">
+              <thead>
+                <tr>
+                  <th>Class Name</th>
+                  <th style="width: 70%">Description/Role</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>.Zpop</code></td>
+                  <td>
+                    Styles the backdrop overlay for the modal. Handles
+                    positioning, centering the modal, and applying a
+                    semi-transparent background.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>.Zpop--show</code></td>
+                  <td>
+                    Applied when the modal is visible. Controls the visibility
+                    and opacity of the backdrop.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>.Zpop__container</code></td>
+                  <td>
+                    Styles the modal container, including its size, padding,
+                    border-radius, and transform animations for scaling in/out.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>.Zpop__close</code></td>
+                  <td>
+                    Styles the close button inside the modal, including its
+                    size, position, and hover effects.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>.Zpop__content</code></td>
+                  <td>
+                    Handles the modal's main content area, including scrollable
+                    behavior with a maximum height.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>.Zpop__footer</code></td>
+                  <td>
+                    Styles the modal footer, aligning buttons to the right and
+                    adding spacing between them.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>.Zpop--no-scroll</code></td>
+                  <td>
+                    Disables scrolling on the target element specified by
+                    <code>scrollLockTarget</code> when the modal is open.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <p>
+              For more details, you can view the full CSS file directly here:
+              <a
+                href="https://github.com/dangtuann-dev/zpop/blob/main/src/zpop.css"
+                target="_blank"
+                >zpop.css</a
+              >.
+            </p>
+
+            <!-- API section -->
+            <h2 data-bullet="4" class="title" id="api">API</h2>
+            <table class="methods">
+              <thead>
+                <tr>
+                  <th>Method</th>
+                  <th class="w60">Description</th>
+                </tr>
+              </thead>
+              <tr>
+                <td>open()</td>
+                <td>
+                  Opens the modal and triggers the
+                  <code>onOpen</code> callback.
+                </td>
+              </tr>
+              <tr>
+                <td>close()</td>
+                <td>
+                  Closes the modal and triggers the
+                  <code>onClose</code> callback. If <code>close(true)</code> is
+                  called, it behaves the same as <code>destroy()</code>,
+                  removing the modal from the DOM.
+                </td>
+              </tr>
+              <tr>
+                <td>setContent(content)</td>
+                <td>Updates the modal content.</td>
+              </tr>
+              <tr>
+                <td>setFooterContent(content)</td>
+                <td>Updates the footer content.</td>
+              </tr>
+              <tr>
+                <td>addFooterBtn(label, cssClass, callback)</td>
+                <td>Adds a button to the footer with a callback function.</td>
+              </tr>
+              <tr>
+                <td>destroy()</td>
+                <td>
+                  Completely removes the modal elements from the DOM and unbinds
+                  all associated events.
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div id="ZTab">
+          <div class="container content">
+            <p>Here are some examples of how to use ZTab:</p>
+
+            <!-- Sample 1 -->
+            <p><strong>1. Basic Tabs Demo</strong></p>
+
+            <div class="sample-1">
+              <ul id="fancy-tabs" class="ztab-tabs">
+                <li><a href="#fancy1">Tab 1</a></li>
+                <li><a href="#fancy2">Tab 2</a></li>
+                <li><a href="#fancy3">Tab 3</a></li>
+                <li><a href="#fancy4">Tab 4</a></li>
+              </ul>
+              <div id="fancy1" class="ztab-panel">
+                Welcome to Tab 1! This is the first tab.
+              </div>
+              <div id="fancy2" class="ztab-panel" hidden>
+                Here’s Tab 2 with some cool content.
+              </div>
+              <div id="fancy3" class="ztab-panel" hidden>
+                Tab 3 is here for you to explore.
+              </div>
+              <div id="fancy4" class="ztab-panel" hidden>
+                Tab 4 has some unique info.
+              </div>
+            </div>
+
+            <!-- Sample 2 -->
+            <p><strong>2. Persistent Tabs Demo</strong></p>
+
+            <div class="sample-2">
+              <ul id="persistent-tabs" class="ztab-tabs">
+                <li><a href="#persist1">News</a></li>
+                <li><a href="#persist2">Sports</a></li>
+                <li><a href="#persist3">Tech</a></li>
+                <li><a href="#persist4">Lifestyle</a></li>
+              </ul>
+              <div id="persist1" class="ztab-panel">
+                Latest news updates from around the world.
+              </div>
+              <div id="persist2" class="ztab-panel" hidden>
+                Top sports highlights and scores.
+              </div>
+              <div id="persist3" class="ztab-panel" hidden>
+                Latest trends in technology.
+              </div>
+              <div id="persist4" class="ztab-panel" hidden>
+                Tips for a better lifestyle.
+              </div>
+            </div>
+
+            <!-- Sample 3 -->
+            <p><strong>3. Sliding Line Tabs Demo</strong></p>
+
+            <div class="sample-3">
+              <div class="ztab-wrapper">
+                <ul id="sliding-tabs" class="ztab-tabs sliding">
+                  <li><a href="#slide1">Home</a></li>
+                  <li><a href="#slide2">About</a></li>
+                  <li><a href="#slide3">Services</a></li>
+                  <li><a href="#slide4">Portfolio</a></li>
+                </ul>
+                <div class="active-line"></div>
+              </div>
+              <div id="slide1" class="ztab-panel">
+                Welcome to the Home tab!
+              </div>
+              <div id="slide2" class="ztab-panel" hidden>
+                About us and our mission.
+              </div>
+              <div id="slide3" class="ztab-panel" hidden>
+                Our services in detail.
+              </div>
+              <div id="slide4" class="ztab-panel" hidden>
+                Check out our portfolio.
+              </div>
+            </div>
+
+            <h2 data-bullet="1" class="title" id="usage">Usage</h2>
+            <p>Here’s the basic HTML structure you’ll need to set up ZTab:</p>
+
+            <pre class="html"><code>&lt;ul id=&quot;my-tabs&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;#panel1&quot;&gt;Tab 1&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#panel2&quot;&gt;Tab 2&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&quot;panel1&quot;&gt;Content 1&lt;/div&gt;
+&lt;div id=&quot;panel2&quot;&gt;Content 2&lt;/div&gt;</code></pre>
+
+            <p>And here’s how you can use it with JavaScript:</p>
+
+            <pre class="javascript"><code>// Initialize a new tab instance
+const tabs = new ZTab('#my-tabs', {
+    activeClassName: 'ztab--active',
+    remember: true, // Keeps the active tab in the URL
+    onChange: function({ tab, panel }) {
+        console.log(`Switched to ${tab.textContent}`);
+    }
+});
+
+// Switch to a specific tab
+tabs.switch('#panel2');
+
+// Destroy the tab instance
+tabs.destroy();
+</code></pre>
+
+            <h2 data-bullet="2" class="title" id="options">Options</h2>
+            <table class="methods">
+              <thead>
+                <tr>
+                  <th>Option</th>
+                  <th>Type</th>
+                  <th class="w60">Description</th>
+                </tr>
+              </thead>
+              <tr>
+                <td>activeClassName</td>
+                <td>string</td>
+                <td>
+                  CSS class applied to the active tab (default:
+                  <code>'ztab--active'</code>)
+                </td>
+              </tr>
+              <tr>
+                <td>remember</td>
+                <td>boolean</td>
+                <td>
+                  Persists the active tab state in the URL (default:
+                  <code>false</code>)
+                </td>
+              </tr>
+              <tr>
+                <td>onChange</td>
+                <td>function</td>
+                <td>
+                  A callback function that runs whenever the active tab changes.
+                  It receives an object with two properties:
+                  <code>tab</code> (the DOM element of the newly active tab) and
+                  <code>panel</code> (the DOM element of the corresponding
+                  content panel). By default, it’s set to <code>null</code>,
+                  meaning no action is taken unless you define a function.
+                </td>
+              </tr>
+            </table>
+
+            <h2 data-bullet="3" class="title" id="api">API</h2>
+            <table class="methods">
+              <thead>
+                <tr>
+                  <th>Method</th>
+                  <th class="w60">Description</th>
+                </tr>
+              </thead>
+              <tr>
+                <td>switch(input)</td>
+                <td>
+                  Switches to a specific tab based on the provided
+                  <code>input</code>. The <code>input</code> can be either: (1)
+                  a <strong>string</strong> representing the
+                  <code>href</code> attribute of a tab (e.g.,
+                  <code>'#panel2'</code>), or (2) a
+                  <strong>DOM element</strong> that is one of the tab links
+                  (e.g., an <code>&lt;a&gt;</code> element from the tabs list).
+                </td>
+              </tr>
+              <tr>
+                <td>destroy()</td>
+                <td>
+                  Removes all ZTab functionality, restores the original HTML,
+                  and unbinds events.
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div id="ZSlide">THIS IS ZSLIDE PAGE</div>
+      </div>
+    </main>
+
+    <footer></footer>
+    <script src="./assets/highlight/highlight.js"></script>
+    <script src="./zestjs.min.js"></script>
+    <script src="./assets/main.js"></script>
+    <script>
+      // Highlight code
+      hljs.initHighlightingOnLoad();
+      // ZTAB
+      const pages = new ZTab("#lib-pages", {
+        activeClassName: "ztab--active",
+        remember: true,
+      });
+      // Basic tabs
+      new ZTab("#fancy-tabs");
+
+      // Persist tabs
+      new ZTab("#persistent-tabs", {
+        remember: true,
+      });
+
+      // Sliding tabs
+      const tabs3 = new ZTab("#sliding-tabs", {
+        onChange: updateActiveLine,
+      });
+
+      function updateActiveLine() {
+        const activeTab = tabs3.currentTab;
+        const tabLi = activeTab.closest("li");
+        const activeLine = tabs3.container.nextElementSibling;
+
+        activeLine.style.width = `${tabLi.offsetWidth}px`;
+        activeLine.style.transform = `translateX(${tabLi.offsetLeft}px)`;
+      }
+      updateActiveLine();
+      //ZPOP
+      // Basic Modal
+      const modal1Btn = document.querySelector(".js-zpop-modal-1");
+      const modal1 = new ZPop({
+        content: `
+                    <h1>Basic Modal</h1>
+                    <p>This is a simple modal. You can customize its content as per your requirements.</p>
+                `,
+      });
+      modal1Btn.onclick = () => {
+        modal1.open();
+      };
+
+      // Modal with Buttons
+      const modal2Btn = document.querySelector(".js-zpop-modal-2");
+      const modal2 = new ZPop({
+        content: `
+                    <h1>Modal with Buttons</h1>
+                    <p>This modal includes functional buttons for actions such as canceling or confirming.</p>
+                `,
+        footer: true,
+      });
+      modal2.addFooterButton("Cancel", "modal-btn", () => {
+        modal2.close();
+      });
+      modal2.addFooterButton("Confirm", "modal-btn primary", () => {
+        console.log("Action confirmed!");
+        modal2.close();
+      });
+      modal2Btn.onclick = () => {
+        modal2.open();
+      };
+
+      // Large Content Modal
+      const modal3Btn = document.querySelector(".js-zpop-modal-3");
+      const modal3 = new ZPop({
+        content: `
+                    <h1>Large Content Modal</h1>
+                    <p>This modal contains a large amount of content, suitable for displaying extended text or information.</p>
+                    <p>Please scroll down to view the entire content.</p>
+                    <p>The content can include multiple paragraphs, images, or other detailed information.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil cumque adipisci mollitia voluptatibus explicabo non perspiciatis eaque sed qui. Est.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil cumque adipisci mollitia voluptatibus explicabo non perspiciatis eaque sed qui. Est.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil cumque adipisci mollitia voluptatibus explicabo non perspiciatis eaque sed qui. Est.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil cumque adipisci mollitia voluptatibus explicabo non perspiciatis eaque sed qui. Est.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil cumque adipisci mollitia voluptatibus explicabo non perspiciatis eaque sed qui. Est.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil cumque adipisci mollitia voluptatibus explicabo non perspiciatis eaque sed qui. Est.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil cumque adipisci mollitia voluptatibus explicabo non perspiciatis eaque sed qui. Est.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil cumque adipisci mollitia voluptatibus explicabo non perspiciatis eaque sed qui. Est.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil cumque adipisci mollitia voluptatibus explicabo non perspiciatis eaque sed qui. Est.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil cumque adipisci mollitia voluptatibus explicabo non perspiciatis eaque sed qui. Est.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil cumque adipisci mollitia voluptatibus explicabo non perspiciatis eaque sed qui. Est.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil cumque adipisci mollitia voluptatibus explicabo non perspiciatis eaque sed qui. Est.</p>
+                `,
+      });
+      modal3Btn.onclick = () => {
+        modal3.open();
+      };
+
+      // Footer-Only Close Modal
+      const modal4Btn = document.querySelector(".js-zpop-modal-4");
+      const modal4 = new ZPop({
+        content: `
+                    <h1>Footer-Only Close Modal</h1>
+                    <p>This modal can only be closed via the button in the footer for a controlled experience.</p>
+                `,
+        footer: true,
+        closeMethods: [],
+      });
+      modal4.addFooterButton("Close", "modal-btn", () => {
+        modal4.close();
+      });
+      modal4Btn.onclick = () => {
+        modal4.open();
+      };
+
+      // Persistent Modal
+      const modal5Btn = document.querySelector(".js-zpop-modal-5");
+      const modal5 = new ZPop({
+        content: `
+                    <h1>Persistent Modal</h1>
+                    <p>This modal stays in the DOM even after being closed, allowing you to reopen it without losing any changes.</p>
+                    <p>You can write something in the input below, close the modal, and reopen it to see the content still intact.</p>
+                    <input type="text" placeholder="Type something here..." class="modal-input" style="width: 100%; padding: 10px; margin-top: 10px;" />
+                `,
+        destroyOnClose: false,
+      });
+      modal5Btn.onclick = () => {
+        modal5.open();
+      };
+
+      // Multiple Modals
+      const modal6Btn = document.querySelector(".js-zpop-modal-6");
+      const modal6 = new ZPop({
+        content: `
+                    <h1>Multiple Modals</h1>
+                    <p>This modal demonstrates interaction between multiple modals. You can open another modal from here.</p>
+                    <button class="btn" onclick="modal1.open();">Open Basic Modal</button>
+                `,
+      });
+      modal6Btn.onclick = () => {
+        modal6.open();
+      };
+
+      // Youtube Embed Modal
+      const modal7Btn = document.querySelector(".js-zpop-modal-7");
+      const modal7 = new ZPop({
+        content: `<iframe width="560" height="315" src="https://www.youtube.com/embed/btdICS6cN0A?si=cStnnBEnrceBGz9m" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
+      });
+      modal7Btn.onclick = () => {
+        modal7.open();
+      };
+    </script>
+  </body>
+</html>

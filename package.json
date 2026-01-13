@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "minify": "terser src/zestjs.js -o zestjs.min.js && csso src/zestjs.css -o zestjs.min.css"
+  },
+  "dependencies": {
+    "csso-cli": "^4.0.2",
+    "terser": "^5.44.1"
+  }
+}
