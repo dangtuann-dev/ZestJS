@@ -98,6 +98,18 @@
     this.tabs = null;
     this.panels = null;
   }
+  switch(target) {
+    // Tìm tab có href khớp với target (ví dụ: "#started")
+    const tab = this.tabs.find((t) => t.getAttribute("href") === target);
+
+    if (tab) {
+      // Nếu tìm thấy, kích hoạt tab đó
+      this.currentTab = tab;
+      this._activateTab(tab);
+    } else {
+      console.error(`ZTab: Tab with selector "${target}" not found.`);
+    }
+  }
 }
 class ZPop {
   static elements = [];
@@ -290,6 +302,26 @@ class ZPop {
 
   _getScrollbarWidth() {
     return window.innerWidth - document.documentElement.clientWidth;
+  }
+  setContent(content) {
+    this.content = content;
+    this._updateContent();
+  }
+  setFooterContent(content) {
+    this._footerContent = content;
+    this._renderFooter();
+  }
+
+  destroy() {
+    if (this._backdrop) {
+      this._backdrop.remove();
+      this._backdrop = null;
+    }
+    const index = ZPop.elements.indexOf(this);
+    if (index > -1) ZPop.elements.splice(index, 1);
+
+    this._unlockScroll();
+    document.removeEventListener("keydown", this._handleEscapeKey);
   }
 }
 class ZSlide {

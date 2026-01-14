@@ -20,17 +20,18 @@
     <link rel="stylesheet" href="./assets/highlight/styles.css" media="all" />
     <link rel="stylesheet" href="./assets/styles.css" media="all" />
     <link rel="stylesheet" href="./zestjs.min.css" />
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
   </head>
   <body>
     <!-- HEADER -->
     <header class="header">
-      <!-- <button id="Nav_Toggle" class="hidden">
+      <button id="Nav_Toggle" class="hidden">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
           <path
             d="M96 160C96 142.3 110.3 128 128 128L512 128C529.7 128 544 142.3 544 160C544 177.7 529.7 192 512 192L128 192C110.3 192 96 177.7 96 160zM96 320C96 302.3 110.3 288 128 288L512 288C529.7 288 544 302.3 544 320C544 337.7 529.7 352 512 352L128 352C110.3 352 96 337.7 96 320zM544 480C544 497.7 529.7 512 512 512L128 512C110.3 512 96 497.7 96 480C96 462.3 110.3 448 128 448L512 448C529.7 448 544 462.3 544 480z"
           />
         </svg>
-      </button> -->
+      </button>
 
       <a class="header__logo logo" href="./index.html">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
@@ -54,21 +55,181 @@
     </header>
     <!-- /HEADER -->
     <main>
-      <nav class="navigation show">
+      <nav class="navigation">
+        <button id="nav-close">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+            <path
+              d="M504.6 148.5C515.9 134.9 514.1 114.7 500.5 103.4C486.9 92.1 466.7 93.9 455.4 107.5L320 270L184.6 107.5C173.3 93.9 153.1 92.1 139.5 103.4C125.9 114.7 124.1 134.9 135.4 148.5L278.3 320L135.4 491.5C124.1 505.1 125.9 525.3 139.5 536.6C153.1 547.9 173.3 546.1 184.6 532.5L320 370L455.4 532.5C466.7 546.1 486.9 547.9 500.5 536.6C514.1 525.3 515.9 505.1 504.6 491.5L361.7 320L504.6 148.5z"
+            />
+          </svg>
+        </button>
         <ul id="lib-pages">
           <li><a href="#home">HOME</a></li>
           <li><a href="#started">GETTING STARTED</a></li>
-          <li>
-            <a href="#components">Components</a>
-          </li>
           <li><a href="#ZPop">ZPop</a></li>
           <li><a href="#ZTab">ZTab</a></li>
           <li><a href="#ZSlide">ZSlide</a></li>
         </ul>
       </nav>
-
+      <div class="nav-overlay" id="nav-overlay"></div>
       <div class="pages">
-        <div id="home">Home</div>
+        <div id="home">
+          <div class="container content">
+            <section
+              class="hero-section"
+              style="text-align: center; padding: 40px 0"
+            >
+              <h1 style="font-size: 3rem; margin-bottom: 10px">ZestJS</h1>
+              <p style="font-size: 1.2rem; color: #666">
+                A <strong>lightweight</strong>, <strong>logic-driven</strong> UI
+                library for rapid web development.
+              </p>
+              <div style="margin-top: 20px">
+                <a
+                  href="#started"
+                  class="btn btn--primary"
+                  onclick="pages.switch('#started')"
+                  style="color: black"
+                  >Get Started</a
+                >
+                <a
+                  href="https://github.com/dangtuann-dev/ZestJS"
+                  class="btn btn--secondary"
+                  style="color: black"
+                  >Github</a
+                >
+              </div>
+            </section>
+
+            <h2 data-bullet="1" class="title">Why ZestJS?</h2>
+            <p>
+              ZestJS was born out of the need for a UI library that is small
+              enough to not bloat your project, but smart enough to handle
+              complex logic like URL state persistence and accessibility.
+            </p>
+            <div
+              class="features-grid"
+              style="
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 20px;
+                margin-top: 20px;
+              "
+            >
+              <div class="feature-card">
+                <h3>🚀 Performance</h3>
+                <p>
+                  Zero dependencies. Under 10kb minified. Optimized for 60fps
+                  animations.
+                </p>
+              </div>
+              <div class="feature-card">
+                <h3>🧠 Logic Driven</h3>
+                <p>
+                  Components aren't just pretty; they handle state, URL
+                  synchronization, and DOM lifecycle.
+                </p>
+              </div>
+              <div class="feature-card">
+                <h3>🎨 Customizable</h3>
+                <p>
+                  Built with pure JS and CSS variables. Style it to match your
+                  brand in minutes.
+                </p>
+              </div>
+            </div>
+
+            <h2 data-bullet="2" class="title">Core Components</h2>
+            <div class="components-preview">
+              <table class="methods">
+                <thead>
+                  <tr>
+                    <th>Component</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <strong
+                        ><a
+                          href="#ZPop"
+                          onclick="pages.switch('#ZPop')"
+                          style="color: black"
+                          >ZPop</a
+                        ></strong
+                      >
+                    </td>
+                    <td>
+                      A versatile modal system with support for templates,
+                      custom buttons, and scroll locking.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong
+                        ><a
+                          href="#ZTab"
+                          onclick="pages.switch('#ZTab')"
+                          style="color: black"
+                          >ZTab</a
+                        ></strong
+                      >
+                    </td>
+                    <td>
+                      SEO-friendly tabs with automatic URL state persistence
+                      (back button support).
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong
+                        ><a
+                          href="#ZSlide"
+                          onclick="pages.switch('#ZSlide')"
+                          style="color: black"
+                          >ZSlide</a
+                        ></strong
+                      >
+                    </td>
+                    <td>
+                      A flexible slider/carousel with loop, autoplay, and
+                      touch-ready logic.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h2 data-bullet="3" class="title">The Roadmap</h2>
+            <p>
+              ZestJS is constantly evolving. Here is what we are working on for
+              future releases:
+            </p>
+            <ul class="roadmap-list">
+              <li>
+                <strong>ZForm:</strong> Lightweight form validation with
+                zero-config.
+              </li>
+              <li>
+                <strong>ZToast:</strong> A non-blocking notification system.
+              </li>
+              <li>
+                <strong>React & Vue Wrappers:</strong> Bringing ZestJS logic to
+                modern frameworks.
+              </li>
+              <li>
+                <strong>Accessibility (A11Y) Enhancement:</strong> Full ARIA
+                support for all components.
+              </li>
+            </ul>
+
+            <blockquote style="margin-top: 40px">
+              "Building the web shouldn't be heavy. Let's make it Zesty."
+            </blockquote>
+          </div>
+        </div>
+
         <div id="started">
           <div class="container content">
             <h2 data-bullet="1" class="title" id="try-it-out">Try It Out</h2>
@@ -76,6 +237,7 @@
               ZestJS is a lightweight, logic-driven UI library for rapid web
               development. built with pure JavaScript. (<a
                 class="hightlight--text"
+                style="color: #007acb"
                 href="https://github.com/dangtuann-dev/ZestJS"
                 >Source code available on GitHub</a
               >)
@@ -104,8 +266,9 @@
                 <td>Direct Download</td>
                 <td>
                   <a
+                    style="color: #007acb"
                     class="hightlight--text"
-                    href="https://github.com/dangtuann-dev/ZestJS/archive/master.zip"
+                    href="https://github.com/dangtuann-dev/ZestJS/archive/refs/heads/main.zip"
                     title="Download ZestJS"
                   >
                     Download ZIP
@@ -128,13 +291,13 @@
 
             <pre
               class="html"
-            ><code>&lt;script src=&quot;https://cdn.jsdelivr.net/gh/dangtuann-dev/ZestJS@v1.0.1/ZestJS.min.js&quot;&gt;&lt;/script&gt;</code></pre>
+            ><code>&lt;script src=&quot;https://cdn.jsdelivr.net/gh/dangtuann-dev/ZestJS@v1.0.0/ZestJS.min.js&quot;&gt;&lt;/script&gt;</code></pre>
 
             <p>Optionally, include the ZestJS CSS file for default styling:</p>
 
             <pre class="html"><code>&lt;link
     rel=&quot;stylesheet&quot;
-    href=&quot;https://cdn.jsdelivr.net/gh/dangtuann-dev/ZestJS@v1.0.1/ZestJS.min.css&quot;
+    href=&quot;https://cdn.jsdelivr.net/gh/dangtuann-dev/ZestJS@v1.0.0/ZestJS.min.css&quot;
 &gt;</code></pre>
 
             <p>
@@ -147,6 +310,7 @@
               You can use the
               <a
                 class="hightlight--text"
+                style="color: #007acb"
                 href="https://github.com/dangtuann-dev/ZestJS/releases"
                 target="_blank"
                 >released</a
@@ -155,11 +319,14 @@
             </blockquote>
           </div>
         </div>
-        <div id="components">THIS IS Components PAGE</div>
         <div id="ZPop">
           <div class="container content">
-            <p>Here are some examples of how to use zpop:</p>
+            <p>
+              ZPop is a versatile, logic-driven modal library designed for
+              creating seamless and accessible overlay experiences.
+            </p>
 
+            <h2 data-bullet="1" class="title">Examples</h2>
             <button class="btn btn--primary btn-demo js-zpop-modal-1">
               Basic Modal
             </button>
@@ -182,7 +349,7 @@
               YouTube Embed Modal
             </button>
 
-            <h2 data-bullet="1" class="title" id="usage">Usage</h2>
+            <h2 data-bullet="2" class="title" id="usage">Usage</h2>
             <pre class="javascript"><code>// Initialize a new modal
 const modal = new ZPop({
     content: '&lt;h1&gt;This is content&lt;/h1&gt;',
@@ -239,7 +406,7 @@ modal.close();</code></pre>
               <code>templateId</code> will be ignored.
             </p>
 
-            <h2 data-bullet="2" class="title" id="options">Options</h2>
+            <h2 data-bullet="3" class="title" id="options">Options</h2>
             <table class="methods">
               <thead>
                 <tr>
@@ -332,7 +499,7 @@ modal.close();</code></pre>
             </table>
 
             <!-- Styling section -->
-            <h2 data-bullet="3" class="title" id="styling">Styling</h2>
+            <h2 data-bullet="4" class="title" id="styling">Styling</h2>
             <p>
               zpop styles are defined in CSS. You can fully customize it to meet
               your design requirements.
@@ -409,7 +576,7 @@ modal.close();</code></pre>
             </p>
 
             <!-- API section -->
-            <h2 data-bullet="4" class="title" id="api">API</h2>
+            <h2 data-bullet="5" class="title" id="api">API</h2>
             <table class="methods">
               <thead>
                 <tr>
@@ -457,7 +624,12 @@ modal.close();</code></pre>
         </div>
         <div id="ZTab">
           <div class="container content">
-            <p>Here are some examples of how to use ZTab:</p>
+            <p>
+              ZTab is a lightweight and SEO-friendly tab component featuring
+              state persistence and effortless navigation.
+            </p>
+
+            <h2 data-bullet="1" class="title">Examples</h2>
 
             <!-- Sample 1 -->
             <p><strong>1. Basic Tabs Demo</strong></p>
@@ -520,9 +692,7 @@ modal.close();</code></pre>
                 </ul>
                 <div class="active-line"></div>
               </div>
-              <div id="slide1" class="ztab-panel">
-                Welcome to the Home tab!
-              </div>
+              <div id="slide1" class="ztab-panel">Welcome to the Home tab!</div>
               <div id="slide2" class="ztab-panel" hidden>
                 About us and our mission.
               </div>
@@ -534,7 +704,7 @@ modal.close();</code></pre>
               </div>
             </div>
 
-            <h2 data-bullet="1" class="title" id="usage">Usage</h2>
+            <h2 data-bullet="2" class="title" id="usage">Usage</h2>
             <p>Here’s the basic HTML structure you’ll need to set up ZTab:</p>
 
             <pre class="html"><code>&lt;ul id=&quot;my-tabs&quot;&gt;
@@ -562,7 +732,7 @@ tabs.switch('#panel2');
 tabs.destroy();
 </code></pre>
 
-            <h2 data-bullet="2" class="title" id="options">Options</h2>
+            <h2 data-bullet="3" class="title" id="options">Options</h2>
             <table class="methods">
               <thead>
                 <tr>
@@ -601,7 +771,7 @@ tabs.destroy();
               </tr>
             </table>
 
-            <h2 data-bullet="3" class="title" id="api">API</h2>
+            <h2 data-bullet="4" class="title" id="api">API</h2>
             <table class="methods">
               <thead>
                 <tr>
@@ -631,156 +801,139 @@ tabs.destroy();
             </table>
           </div>
         </div>
-        <div id="ZSlide">THIS IS ZSLIDE PAGE</div>
+        <div id="ZSlide">
+          <div class="container content">
+            <p>
+              ZSlide is a flexible and lightweight touch-enabled slider
+              component.
+            </p>
+
+            <h2 data-bullet="1" class="title">Examples</h2>
+
+            <p><strong>1. Basic Slider (1 Item, Loop)</strong></p>
+            <div id="slider-demo-1" class="my-slider-wrapper">
+              <div style="background: burlywood">Slide 1</div>
+              <div style="background: olive">Slide 2</div>
+              <div style="background: darkcyan">Slide 3</div>
+              <div style="background: indianred">Slide 4</div>
+            </div>
+
+            <p style="margin-top: 40px">
+              <strong>2. Multi-items (3 Items, Autoplay)</strong>
+            </p>
+            <div id="slider-demo-2" class="my-slider-wrapper">
+              <div style="background: #5f9ea0">1</div>
+              <div style="background: #7b68ee">2</div>
+              <div style="background: #ff7f50">3</div>
+              <div style="background: #2e8b57">4</div>
+              <div style="background: #db7093">5</div>
+              <div style="background: #4682b4">6</div>
+            </div>
+
+            <h2 data-bullet="2" class="title" id="usage">Usage</h2>
+            <p>HTML structure:</p>
+            <pre class="html"><code>&lt;div id="my-slider"&gt;
+    &lt;div&gt;Slide 1&lt;/div&gt;
+    &lt;div&gt;Slide 2&lt;/div&gt;
+    &lt;div&gt;Slide 3&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+            <p>Initialization:</p>
+            <pre
+              class="javascript"
+            ><code>const slider = new ZSlide('#my-slider', {
+    items: 1,
+    loop: true,
+    autoplay: true,
+    speed: 400
+});</code></pre>
+
+            <h2 data-bullet="3" class="title" id="options">Options</h2>
+            <table class="methods">
+              <thead>
+                <tr>
+                  <th>Option</th>
+                  <th>Type</th>
+                  <th class="w60">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>items</td>
+                  <td>number</td>
+                  <td>
+                    Number of items to display per view (default:
+                    <code>1</code>).
+                  </td>
+                </tr>
+                <tr>
+                  <td>speed</td>
+                  <td>number</td>
+                  <td>
+                    Transition speed in milliseconds (default:
+                    <code>300</code>).
+                  </td>
+                </tr>
+                <tr>
+                  <td>loop</td>
+                  <td>boolean</td>
+                  <td>
+                    Enable infinite loop sliding (default: <code>false</code>).
+                  </td>
+                </tr>
+                <tr>
+                  <td>autoplay</td>
+                  <td>boolean</td>
+                  <td>
+                    Automatically transition slides (default:
+                    <code>false</code>).
+                  </td>
+                </tr>
+                <tr>
+                  <td>nav</td>
+                  <td>boolean</td>
+                  <td>Show pagination dots (default: <code>true</code>).</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <h2 data-bullet="4" class="title" id="api">API</h2>
+            <table class="methods">
+              <thead>
+                <tr>
+                  <th>Method</th>
+                  <th class="w60">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>move(step)</td>
+                  <td>
+                    Moves the slider by a specific number of steps (positive or
+                    negative).
+                  </td>
+                </tr>
+                <tr>
+                  <td>goToPage(index)</td>
+                  <td>Goes to a specific page index.</td>
+                </tr>
+                <tr>
+                  <td>startAutoplay()</td>
+                  <td>Starts the autoplay timer.</td>
+                </tr>
+                <tr>
+                  <td>stopAutoplay()</td>
+                  <td>Stops the autoplay timer.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </main>
 
-    <footer></footer>
     <script src="./assets/highlight/highlight.js"></script>
     <script src="./zestjs.min.js"></script>
     <script src="./assets/main.js"></script>
-    <script>
-      // Highlight code
-      hljs.initHighlightingOnLoad();
-      // ZTAB
-      const pages = new ZTab("#lib-pages", {
-        activeClassName: "ztab--active",
-        remember: true,
-      });
-      // Basic tabs
-      new ZTab("#fancy-tabs");
-
-      // Persist tabs
-      new ZTab("#persistent-tabs", {
-        remember: true,
-      });
-
-      // Sliding tabs
-      const tabs3 = new ZTab("#sliding-tabs", {
-        onChange: updateActiveLine,
-      });
-
-      function updateActiveLine() {
-        const activeTab = tabs3.currentTab;
-        const tabLi = activeTab.closest("li");
-        const activeLine = tabs3.container.nextElementSibling;
-
-        activeLine.style.width = `${tabLi.offsetWidth}px`;
-        activeLine.style.transform = `translateX(${tabLi.offsetLeft}px)`;
-      }
-      updateActiveLine();
-      //ZPOP
-      // Basic Modal
-      const modal1Btn = document.querySelector(".js-zpop-modal-1");
-      const modal1 = new ZPop({
-        content: `
-                    <h1>Basic Modal</h1>
-                    <p>This is a simple modal. You can customize its content as per your requirements.</p>
-                `,
-      });
-      modal1Btn.onclick = () => {
-        modal1.open();
-      };
-
-      // Modal with Buttons
-      const modal2Btn = document.querySelector(".js-zpop-modal-2");
-      const modal2 = new ZPop({
-        content: `
-                    <h1>Modal with Buttons</h1>
-                    <p>This modal includes functional buttons for actions such as canceling or confirming.</p>
-                `,
-        footer: true,
-      });
-      modal2.addFooterButton("Cancel", "modal-btn", () => {
-        modal2.close();
-      });
-      modal2.addFooterButton("Confirm", "modal-btn primary", () => {
-        console.log("Action confirmed!");
-        modal2.close();
-      });
-      modal2Btn.onclick = () => {
-        modal2.open();
-      };
-
-      // Large Content Modal
-      const modal3Btn = document.querySelector(".js-zpop-modal-3");
-      const modal3 = new ZPop({
-        content: `
-                    <h1>Large Content Modal</h1>
-                    <p>This modal contains a large amount of content, suitable for displaying extended text or information.</p>
-                    <p>Please scroll down to view the entire content.</p>
-                    <p>The content can include multiple paragraphs, images, or other detailed information.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil cumque adipisci mollitia voluptatibus explicabo non perspiciatis eaque sed qui. Est.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil cumque adipisci mollitia voluptatibus explicabo non perspiciatis eaque sed qui. Est.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil cumque adipisci mollitia voluptatibus explicabo non perspiciatis eaque sed qui. Est.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil cumque adipisci mollitia voluptatibus explicabo non perspiciatis eaque sed qui. Est.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil cumque adipisci mollitia voluptatibus explicabo non perspiciatis eaque sed qui. Est.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil cumque adipisci mollitia voluptatibus explicabo non perspiciatis eaque sed qui. Est.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil cumque adipisci mollitia voluptatibus explicabo non perspiciatis eaque sed qui. Est.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil cumque adipisci mollitia voluptatibus explicabo non perspiciatis eaque sed qui. Est.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil cumque adipisci mollitia voluptatibus explicabo non perspiciatis eaque sed qui. Est.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil cumque adipisci mollitia voluptatibus explicabo non perspiciatis eaque sed qui. Est.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil cumque adipisci mollitia voluptatibus explicabo non perspiciatis eaque sed qui. Est.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil cumque adipisci mollitia voluptatibus explicabo non perspiciatis eaque sed qui. Est.</p>
-                `,
-      });
-      modal3Btn.onclick = () => {
-        modal3.open();
-      };
-
-      // Footer-Only Close Modal
-      const modal4Btn = document.querySelector(".js-zpop-modal-4");
-      const modal4 = new ZPop({
-        content: `
-                    <h1>Footer-Only Close Modal</h1>
-                    <p>This modal can only be closed via the button in the footer for a controlled experience.</p>
-                `,
-        footer: true,
-        closeMethods: [],
-      });
-      modal4.addFooterButton("Close", "modal-btn", () => {
-        modal4.close();
-      });
-      modal4Btn.onclick = () => {
-        modal4.open();
-      };
-
-      // Persistent Modal
-      const modal5Btn = document.querySelector(".js-zpop-modal-5");
-      const modal5 = new ZPop({
-        content: `
-                    <h1>Persistent Modal</h1>
-                    <p>This modal stays in the DOM even after being closed, allowing you to reopen it without losing any changes.</p>
-                    <p>You can write something in the input below, close the modal, and reopen it to see the content still intact.</p>
-                    <input type="text" placeholder="Type something here..." class="modal-input" style="width: 100%; padding: 10px; margin-top: 10px;" />
-                `,
-        destroyOnClose: false,
-      });
-      modal5Btn.onclick = () => {
-        modal5.open();
-      };
-
-      // Multiple Modals
-      const modal6Btn = document.querySelector(".js-zpop-modal-6");
-      const modal6 = new ZPop({
-        content: `
-                    <h1>Multiple Modals</h1>
-                    <p>This modal demonstrates interaction between multiple modals. You can open another modal from here.</p>
-                    <button class="btn" onclick="modal1.open();">Open Basic Modal</button>
-                `,
-      });
-      modal6Btn.onclick = () => {
-        modal6.open();
-      };
-
-      // Youtube Embed Modal
-      const modal7Btn = document.querySelector(".js-zpop-modal-7");
-      const modal7 = new ZPop({
-        content: `<iframe width="560" height="315" src="https://www.youtube.com/embed/btdICS6cN0A?si=cStnnBEnrceBGz9m" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
-      });
-      modal7Btn.onclick = () => {
-        modal7.open();
-      };
-    </script>
   </body>
 </html>
